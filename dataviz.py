@@ -18,7 +18,11 @@ with open("data/googleplaystore.csv") as csvfile:
             categories.append(row)
             line_count += 1
         else:
-            print("collect the rest of the data")
+            ratingsData = row[2]
+            ratingsData = ratingsData.replace("Nan", "0")
+            ratings.append(float(ratingsData))
+
+            # print("collect the rest of the data")
             installData = row[5]
             installData = installData.replace(",", "")
             installData = installData.replace("Free", "")
